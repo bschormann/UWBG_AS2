@@ -3,7 +3,6 @@ package uw.edu.uwbg;
 /**
 Copyright � <2014> <University of Washington>
 
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -15,7 +14,7 @@ all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
@@ -32,13 +31,12 @@ import android.widget.CheckBox;
 import android.widget.Toast;
 
 /**
- * Invoked from long press on About button.
+ * Invoked from long press on Visitor Information button.
  * 
  * @author Brett Schormann
  * @version 0.1 10/24/2014
  * 			0.2 11/12/2014
  * 			Changed so that Capstone project format is used. (BS)
- * @since 0.2
  */
 public class BackDoorHelperActivity extends Activity {
 	// TODO Use array adapter
@@ -81,7 +79,7 @@ public class BackDoorHelperActivity extends Activity {
 		parkHistory.setChecked(backDoorHelper.isUseProductionParkHistory());
 		capstoneProject.setChecked(backDoorHelper.isUseCapstoneProject());
 
-        saveButton = (Button) findViewById(R.id.Save);;
+        saveButton = (Button) findViewById(R.id.Save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // set values in singleton to new state

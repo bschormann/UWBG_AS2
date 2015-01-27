@@ -133,8 +133,8 @@ import android.widget.Toast;
 				break;
 			}
 			case 3: {	// tours	
-				urlString = "http://depts.washington.edu/uwbg/visit/tours.shtml";				
-				break;
+                urlString = "http://depts.washington.edu/uwbg/visit/tours.shtml";
+                break;
 			}
 			case 4: {	// Center for Urban Horticulture
 				urlString = "http://depts.washington.edu/uwbg/visit/cuh.php";

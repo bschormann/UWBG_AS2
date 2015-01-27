@@ -14,7 +14,7 @@ all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
@@ -28,12 +28,11 @@ import android.widget.TextView;
 
 /**
  * Displays the text from the FAQs page of BG web site.
- * @author 	Brett Schormann
- * @version 0.1 10/2014
- * 			0.2 10/31/2014
- * 			Used CustomFont to set up text.
- * @since 	0.1		
  *
+ * @author 	Brett Schormann
+ * @version 10/2014
+ * 			10/31/2014 Used CustomFont to set up text. (BS)
+ * 		    1/27/2015 Cleanup. (BS)
  */
 public class AboutActivity extends Activity {
 	private final String htmlText = "<p><strong>The University of Washington Botanic Gardens (UWBG) is " +

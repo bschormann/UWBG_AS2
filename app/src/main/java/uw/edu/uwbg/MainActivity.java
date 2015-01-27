@@ -3,7 +3,6 @@ package uw.edu.uwbg;
 /**
 Copyright � <2014> <University of Washington>
 
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
@@ -15,7 +14,7 @@ all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
@@ -52,16 +51,12 @@ import android.widget.Toast;
  * and the rest of the activities in the app.
  * 
  * @author 	Brett Schormann
- * @version 0.3 10/29/2014
- * 			Miscellaneous changes to support integration of Sheyma's code (BS)
- * 			0.4 10/30/2014
- * 			Changes to support integration of DownloadPDFTask (BS)
- * 			0.5 10/31/2014
- * 			Changes to support integration of FeaturedGardens (BS)
- * 			0.6 11/12/2014
- * 			Changed so that Capstone project format is used. (BS)
- * 			0.7 11/24/2014
- * 			Added some images from Tracy
+ * @version 10/29/2014 Miscellaneous changes to support integration of Sheyma's code. (BS)
+ * 			10/30/2014 Changes to support integration of DownloadPDFTask. (BS)
+ * 			10/31/2014 Changes to support integration of FeaturedGardens. (BS)
+ * 			11/12/2014 Changed so that Capstone project format is used. (BS)
+ * 			11/24/2014 Added some images from Tracy. (BS)
+ * 		    1/27/2015 Cleanup.	(BS)
  */
 public class MainActivity extends Activity {
 	
@@ -150,12 +145,11 @@ public class MainActivity extends Activity {
      * A recursive algorithm to smooth transitions between images.
      * 
      * @author Brett Schormann
-     * @version 0.2 10/27/2014
-     * 
+     * @version 10/27/2014
      * @see <a href="http://stackoverflow.com/questions/17587152/how-to-do-smooth-transition-from-one-image-to-another">http://stackoverflow.com/questions/17587152/how-to-do-smooth-transition-from-one-image-to-another></a>
-     * @param imageView		The View which displays the images
-     * @param images		A string array of image names to display
-     * @param imageIndex	Index of the first image to show in images[]
+     * @param imageView		The View which displays the images.
+     * @param images		A string array of image names to display.
+     * @param imageIndex	Index of the first image to show in images[].
      * @param forever		If equals true then after the last image it starts all over again with the 
      * 						first image resulting in an infinite loop. You have been warned.
      */
@@ -210,7 +204,7 @@ public class MainActivity extends Activity {
      * to set up buttons.
      * 
      * @author Brett Schormann
-     * @version 0.1 10/2014
+     * @version 10/2014
      */
     private void setupButtons() {
     	CustomFont customFont = CustomFont.getCustomFont();
@@ -249,9 +243,9 @@ public class MainActivity extends Activity {
      * That is: Welcome to the ... Washington Park Arboretum
      *     
      * @author 	Brett Schormann
-     * @version 0.1 10/2014
-     * 			0.2 11/13/2014 Changed to inclue Capstone project format. (BS)
-     * 			0.3 11/16/2014 Changed font to OpenSans-BoldItalic from OpenSans-LightItalic
+     * @version 10/2014
+     * 			11/13/2014 Changed to inclue Capstone project format. (BS)
+     * 			11/16/2014 Changed font to OpenSans-BoldItalic from OpenSans-LightItalic. (BS)
      */
     private void adjustTextOnHomeScreen() {
     	
@@ -273,12 +267,10 @@ public class MainActivity extends Activity {
      * Adds listeners to the buttons
      *     
      * @author 	Brett Schormann
-     * @version 0.2 10/28/2014
-     * 			Completed adding listeners to buttons.
-     * 			0.3 10/30/2014
-     * 			Added code to use DownloadPDFTask (BS)
-     * 			0.4 11/16/2014
-     * 			Changed backdoor from About to Visitor Information
+     * @version 10/28/2014 Completed adding listeners to buttons. (BS)
+     * 			10/30/2014 Added code to use DownloadPDFTask. (BS)
+     * 			11/16/2014 Changed backdoor from About to Visitor Information. (BS)
+     * 		    1/27/2015 Made website default for Events and Classes. (BS)
      */
     private void setupButtonListeners() {
     	Button button = null;
@@ -380,23 +372,31 @@ public class MainActivity extends Activity {
             }
         });
 
-       // Arboretum Events
+       // Classes and Events
         button = (Button) findViewById(R.id.arboretum_events);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	BackDoorHelper bdh = BackDoorHelper.getBackDoorHelper();
-            	if (bdh.isUseProductionArboretumEvents()) {
-            		Intent intent = new Intent(MainActivity.this, ArboretumEventsActivity.class);
-        	    	startActivity(intent);
-            	} else {
-            		String urlString = "http://depts.washington.edu/uwbg/visit/calendar.shtml";
+//              N.B. Always uses website unless following code is re-inserted
+//            	BackDoorHelper bdh = BackDoorHelper.getBackDoorHelper();
+//            	if (bdh.isUseProductionArboretumEvents()) {
+//            		Intent intent = new Intent(MainActivity.this, ArboretumEventsActivity.class);
+//        	    	startActivity(intent);
+//            	} else {
+//            		String urlString = "http://depts.washington.edu/uwbg/visit/calendar.shtml";
+//	            	SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+//	            	SharedPreferences.Editor editor = sharedPreferences.edit();
+//	            	editor.putString("url", urlString);
+//	            	editor.commit();
+//	            	Intent intent = new Intent(MainActivity.this, WebsiteActivity.class);
+//	            	startActivity(intent);
+//            	}
+                String urlString = "http://depts.washington.edu/uwbg/visit/calendar.shtml";
 	            	SharedPreferences sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
 	            	SharedPreferences.Editor editor = sharedPreferences.edit();
 	            	editor.putString("url", urlString);
 	            	editor.commit();
 	            	Intent intent = new Intent(MainActivity.this, WebsiteActivity.class);
 	            	startActivity(intent);
-            	}
             }      
         });
 
@@ -492,8 +492,7 @@ public class MainActivity extends Activity {
      * Helper method to setup and send email
      *     
      * @author 	Brett Schormann
-     * @version 0.2 10/28/2014
-     * 			Added email addresses. (BS)
+     * @version 10/28/2014 Added email addresses. (BS)
      */
     private void sendEmail() {
         Intent i = new Intent(Intent.ACTION_SEND);
@@ -502,7 +501,6 @@ public class MainActivity extends Activity {
         i.putExtra(Intent.EXTRA_CC, 		new String[]{
         		"bschormann@jbschormann.com",
         		"bschormann@comcast.net",
-        		"sheyma61@yahoo.com",
         		"davidc23@uw.edu"
         		});
         i.putExtra(Intent.EXTRA_SUBJECT, 	"Feedback from Botanical Garden App User");
